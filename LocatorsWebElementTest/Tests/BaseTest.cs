@@ -16,7 +16,7 @@ namespace LocatorsWebElementTest.Tests
 		[SetUp]
 		public void Setup()
 		{
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(); 
 			driver.Manage().Window.Maximize();
 			wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 			actions = new Actions(driver);

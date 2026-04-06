@@ -8,7 +8,7 @@ namespace LocatorsWebElementTest.Pages
 {
 	public class CareersPage(IWebDriver driver, WebDriverWait wait, Actions actions)
 	{
-		public void ClickStartSearch() => driver.FindElement(Locators.StartSearchBtn).Click();
+		public void ClickStartSearch() => driver.FindElement(Locators.StartSearchBtn).Click(); 
 
 		public void EnterKeyword(string keyword)
 		{

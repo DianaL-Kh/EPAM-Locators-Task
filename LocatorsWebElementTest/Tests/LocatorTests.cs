@@ -12,7 +12,7 @@ namespace LocatorsWebElementTest.Tests
 		[TestCase("SQL")]
 		public void TestCase1_SearchPosition(string programmingLanguage)
 		{
-			var homePage = new EpamHomePage(driver, wait);
+			var homePage = new EpamHomePage(driver, wait); 
 			var careersPage = new CareersPage(driver, wait, actions);
 
 			homePage.Open();

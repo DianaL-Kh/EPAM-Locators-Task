@@ -29,7 +29,5 @@ namespace LocatorsWebElementTest.Constants
 		public static readonly By SpanViewMore = By.XPath("//span[contains(text(), 'View More')]");
 		public static readonly By GlobalSearchPreloader = By.ClassName("preloader");
 		public static readonly By ViewMoreButtonTextCss = By.CssSelector("a.search-results__view-more");
-
-		public static readonly By ViewMoreBtn = By.PartialLinkText("View");
 	}
 }

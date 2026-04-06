@@ -17,7 +17,7 @@ namespace LocatorsWebElementTest.Pages
 			var findButton = wait.Until(ExpectedConditions.ElementToBeClickable(Locators.GlobalFindBtn));
 			findButton.Click();
 
-			wait.Until(ExpectedConditions.ElementIsVisible(Locators.SearchResultsContainer));
+			wait.Until(ExpectedConditions.ElementIsVisible(Locators.SearchResultsContainer)); 
 		}
 
 		public void LoadAllResults()

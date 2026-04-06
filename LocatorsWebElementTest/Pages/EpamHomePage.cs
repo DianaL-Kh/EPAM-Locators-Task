@@ -25,7 +25,7 @@ namespace LocatorsWebElementTest.Pages
 
 					wait.Until(ExpectedConditions.InvisibilityOfElementLocated(Locators.CookieBanner));
 
-					return;
+					return; 
 				}
 			}
 		}
