@@ -14,19 +14,19 @@ namespace LocatorsWebElementTest.Pages
 
 		public void AcceptCookiesIfPresent()
 		{
-			while (true)
+			var acceptButton = wait.Until(driver =>
 			{
-				var acceptBtns = driver.FindElements(Locators.AcceptCookiesBtn);
+				var elements = driver.FindElements(Locators.AcceptCookiesBtn);
+				return elements.Count > 0 && elements[0].Displayed
+					? elements[0]
+					: null;
+			});
 
-				if (acceptBtns.Count > 0 && acceptBtns[0].Displayed)
-				{
-					wait.Until(ExpectedConditions.ElementToBeClickable(acceptBtns[0]));
-					acceptBtns[0].Click();
+			if (acceptButton != null)
+			{
+				acceptButton.Click();
 
-					wait.Until(ExpectedConditions.InvisibilityOfElementLocated(Locators.CookieBanner));
-
-					return; 
-				}
+				wait.Until(ExpectedConditions.InvisibilityOfElementLocated(Locators.CookieBanner));
 			}
 		}
 

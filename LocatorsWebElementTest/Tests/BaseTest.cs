@@ -6,7 +6,8 @@ using OpenQA.Selenium.Support.UI;
 namespace LocatorsWebElementTest.Tests
 {
 	[TestFixture]
-	[Parallelizable(ParallelScope.All)]
+	[Parallelizable(ParallelScope.Children)]
+	[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 	public class BaseTest
 	{
 		protected IWebDriver driver;

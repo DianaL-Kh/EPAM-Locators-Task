@@ -7,8 +7,8 @@ namespace LocatorsWebElementTest.Tests
 		[Test]
 		[TestCase(".Net")]
 		[TestCase("Java")]
-		[TestCase("Python")]
 		[TestCase("JavaScript")]
+		[TestCase("Python")]
 		[TestCase("SQL")]
 		public void TestCase1_SearchPosition(string programmingLanguage)
 		{
@@ -22,8 +22,8 @@ namespace LocatorsWebElementTest.Tests
 			careersPage.ClickStartSearch();
 			homePage.AcceptCookiesIfPresent();
 
-			careersPage.EnterKeyword(programmingLanguage);
 			careersPage.ClearLocationIfSet();
+			careersPage.EnterKeyword(programmingLanguage);
 			careersPage.SelectRemote();
 
 			careersPage.SubmitSearchAndWaitForUpdate();

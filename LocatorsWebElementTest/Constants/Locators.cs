@@ -20,6 +20,7 @@ namespace LocatorsWebElementTest.Constants
 		public static readonly By JobCardPanel = By.CssSelector("[data-testid='job-card-panel-container']");
 		public static readonly By LastPageBtn = By.XPath("//button[@aria-label='next page']/preceding-sibling::button[1]");
 		public static readonly By LastJobCardLink = By.CssSelector("div[class*='JobCard_panel']:last-child a[data-testid='job-card-link']");
+		public static readonly By CareersPreloader = By.CssSelector("[data-testid='preloader']");
 
 		public static readonly By GlobalSearchInput = By.Id("new_form_search");
 		public static readonly By GlobalFindBtn = By.XPath("//button[contains(@class, 'custom-search-button')]");

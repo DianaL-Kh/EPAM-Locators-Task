@@ -8,10 +8,11 @@ namespace LocatorsWebElementTest.Pages
 {
 	public class CareersPage(IWebDriver driver, WebDriverWait wait, Actions actions)
 	{
-		public void ClickStartSearch() => driver.FindElement(Locators.StartSearchBtn).Click(); 
+		public void ClickStartSearch() => driver.FindElement(Locators.StartSearchBtn).Click();
 
 		public void EnterKeyword(string keyword)
 		{
+			wait.Until(ExpectedConditions.ElementIsVisible(Locators.CareersPreloader));
 			var keywordField = wait.Until(ExpectedConditions.ElementToBeClickable(Locators.KeywordInput));
 			keywordField.SendKeys(keyword);
 		}
@@ -28,11 +29,9 @@ namespace LocatorsWebElementTest.Pages
 
 		public void SelectRemote()
 		{
-			var remoteCheckbox = driver.FindElements(Locators.RemoteCheckbox);
-			if (remoteCheckbox.Count > 0)
-			{
-				remoteCheckbox[0].Click();
-			}
+			var remoteCheckbox = driver.FindElement(Locators.RemoteCheckbox);
+			wait.Until(ExpectedConditions.ElementToBeClickable(remoteCheckbox));
+			remoteCheckbox.Click();
 		}
 
 		public void SubmitSearchAndWaitForUpdate()
