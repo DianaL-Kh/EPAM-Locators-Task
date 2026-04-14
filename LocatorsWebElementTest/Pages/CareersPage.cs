@@ -12,8 +12,10 @@ namespace LocatorsWebElementTest.Pages
 
 		public void EnterKeyword(string keyword)
 		{
-			wait.Until(ExpectedConditions.ElementIsVisible(Locators.CareersPreloader));
+			wait.Until(ExpectedConditions.InvisibilityOfElementLocated(Locators.CareersPreloader));
+
 			var keywordField = wait.Until(ExpectedConditions.ElementToBeClickable(Locators.KeywordInput));
+			keywordField.Clear();
 			keywordField.SendKeys(keyword);
 		}
 

@@ -3,10 +3,12 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
+[assembly: NUnit.Framework.LevelOfParallelism(3)]
+
 namespace LocatorsWebElementTest.Tests
 {
 	[TestFixture]
-	[Parallelizable(ParallelScope.Children)]
+	[Parallelizable(ParallelScope.All)]
 	[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 	public class BaseTest
 	{
@@ -17,17 +19,32 @@ namespace LocatorsWebElementTest.Tests
 		[SetUp]
 		public void Setup()
 		{
-			driver = new ChromeDriver(); 
-			driver.Manage().Window.Maximize();
-			wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+			var options = new ChromeOptions();
+			options.AddArgument("--start-maximized");
+			options.AddArgument("--disable-extensions");
+			options.AddArgument("--incognito");
+
+			driver = new ChromeDriver(options);
+			driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+			wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 			actions = new Actions(driver);
 		}
 
 		[TearDown]
 		public void Teardown()
 		{
-			driver?.Quit();
-			driver?.Dispose();
+			try
+			{
+				driver?.Quit();
+			}
+			catch (Exception e)
+			{
+				TestContext.WriteLine($"Error during Quit: {e.Message}");
+			}
+			finally
+			{
+				driver?.Dispose();
+			}
 		}
 	}
 }
